@@ -1,0 +1,25 @@
+# Claude ZeroClaw
+
+> OpenAI-compatible API gateway for your Claude subscription.
+> Built with Rust (core server) and JavaScript (config/utilities).
+
+## Endpoints
+
+- POST /v1/chat/completions — OpenAI-compatible chat completions (streaming + non-streaming)
+- GET  /v1/models           — List available Claude models
+- GET  /health              — Gateway health check
+
+## Supported models
+
+- claude-sonnet-4-20250514 (aliases: sonnet, gpt-4o, gpt-4)
+- claude-opus-4-20250514   (aliases: opus)
+- claude-haiku-4-5-20251001 (aliases: haiku, gpt-3.5-turbo, gpt-4o-mini)
+
+## Configuration
+
+All env vars use the CZG_ prefix. See .env.example.
+
+## No API key required
+
+Uses the Claude Code CLI from your existing Claude subscription.
+Set any string as the OpenAI API key in your tools (e.g. "not-needed").

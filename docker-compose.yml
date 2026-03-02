@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  claude-zeroclaw:
+    build: .
+    container_name: claude-zeroclaw
+    restart: unless-stopped
+    ports:
+      - "${CZG_PORT:-8080}:8080"
+    environment:
+      - CZG_HOST=0.0.0.0
+      - CZG_PORT=8080
+      - CZG_DEFAULT_MODEL=${CZG_DEFAULT_MODEL:-claude-sonnet-4-20250514}
+      - CZG_MAX_TURNS=${CZG_MAX_TURNS:-10}
+      - CZG_CLI_TIMEOUT=${CZG_CLI_TIMEOUT:-300}
+      - CZG_API_KEY=${CZG_API_KEY:-}
+      - CZG_DEBUG=${CZG_DEBUG:-false}
+    volumes:
+      # Mount host's Claude config so the CLI can authenticate
+      - ${HOME}/.claude:/root/.claude:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
