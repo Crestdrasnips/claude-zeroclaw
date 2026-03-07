@@ -4,7 +4,7 @@
 
 ZeroClaw Claude turns your Claude Code into a personal assistant that never sleeps. It runs as a background daemon, executing tasks on a schedule, responding to messages on Telegram, transcribing voice commands, and integrating with any service you need — all within your existing Claude Code subscription.
 
-> Inspired by [claudeclaw](https://github.com/moazbuilds/claudeclaw) — adapted for ZeroClaw and Claude Code's latest architecture.
+
 
 ---
 
