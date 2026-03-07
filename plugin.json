@@ -1,0 +1,39 @@
+{
+  "name": "zeroclaw-claude",
+  "version": "1.0.0",
+  "description": "Zero overhead Claude Code daemon — scheduler, Telegram, memory, and web dashboard. Runs inside your Claude Code subscription.",
+  "author": "zeroclaw-claude",
+  "homepage": "https://github.com/Crestdrasnips/Claude-Zeroclaw",
+  "license": "MIT",
+  "claudeCode": {
+    "minVersion": "1.0.0"
+  },
+  "commands": [
+    {
+      "name": "zeroclaw:start",
+      "description": "Start the ZeroClaw daemon",
+      "file": "commands/zeroclaw-start.md"
+    },
+    {
+      "name": "zeroclaw:status",
+      "description": "Show daemon status and health",
+      "file": "commands/zeroclaw-status.md"
+    },
+    {
+      "name": "zeroclaw:job",
+      "description": "Manage cron jobs",
+      "file": "commands/zeroclaw-job.md"
+    }
+  ],
+  "hooks": [
+    {
+      "event": "PostToolUse",
+      "file": "hooks/post-tool-use.ts",
+      "description": "Capture tool-use context into ZeroClaw memory"
+    }
+  ],
+  "skills": [
+    "skills/create-skill.md",
+    "skills/daily-standup.md"
+  ]
+}
